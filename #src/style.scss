@@ -1,0 +1,97 @@
+@import "./reset.scss";
+$color-white: #ecedf0;
+$color-black: #35383f;
+$color-gray: #a0a3b3;
+$color-blue: #1f6fb0;
+$bg-color: #404a65;
+$text-styles: (
+  heading-text: (
+    font-size: 4rem,
+    font-weight: 900,
+    color: $color-white,
+  ),
+  subheading-text: (
+    font-size: 1.5rem,
+    font-weight: 600,
+    color: $color-white,
+  ),
+  button-text: (
+    font-size: 1.25rem,
+    font-weight: 600,
+    color: $color-white,
+  ),
+);
+@mixin text-format($type) {
+  font-size: map-get(map-get($text-styles, $type), font-size);
+  font-weight: map-get(map-get($text-styles, $type), font-weight);
+  color: map-get(map-get($text-styles, $type), color);
+}
+.wrapper {
+  min-height: 100vh;
+  min-width: 100%;
+  background-color: $bg-color;
+  font-family: "Kanit", sans-serif;
+}
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2.5rem;
+  margin-bottom: 3.75rem;
+}
+.title {
+  @include text-format(heading-text);
+  text-shadow: 2px 2px 0px #35383f;
+  -webkit-text-stroke-width: 5px;
+  -webkit-text-stroke-color: #35383f;
+}
+.subtitle {
+  @include text-format(subheading-text);
+  color: $color-gray;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.coin-box {
+  display: block;
+  cursor: pointer;
+  &__item {
+    max-width: 10rem;
+    max-height: 10rem;
+  }
+  &::after {
+    content: "";
+    display: block;
+    height: 0.5rem;
+    min-width: fit-content;
+    background-image: url(../img/shadow.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 2.5rem auto;
+  }
+}
+.result {
+  @include text-format(subheading-text);
+  margin-bottom: 3.75rem;
+}
+.button {
+  @include text-format(button-text);
+  cursor: pointer;
+  text-transform: uppercase;
+  max-width: fit-content;
+  padding: 0.5rem 2.5rem;
+  background-color: $color-blue;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 0px 0px #23649b;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  will-change: transform;
+  &:active {
+    transform: translateY(2px);
+    transition: 200ms;
+    box-shadow: 0px 0px 0px 0px #23649b;
+  }
+}
