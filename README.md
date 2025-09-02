@@ -8,8 +8,6 @@
 
 ## <a id="general-info">⭐ General info</a>
 
-# Flip The Coin
-
 An interactive web page for random decision-making — flip a coin and get a result: heads or tails. Built with **HTML**, **SCSS**, and **JavaScript**, featuring animation and visual feedback.
 
 ## <a id="Preview">🖼️ Preview</a>
